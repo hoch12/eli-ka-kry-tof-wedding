@@ -1,80 +1,79 @@
 import heroImage from "@/assets/hero-couple.jpg";
 
 const HeroSection = () => {
-  return (
-      <section className="relative min-h-screen flex flex-col items-center overflow-hidden">
-        {/* 1. BACKGROUND & PŮVODNÍ EFEKT */}
-        <div className="absolute inset-0">
-          <img
-              src={heroImage}
-              alt="Eliška a Kryštof"
-              // Původní pozicování fotky, které fungovalo dobře
-              className="w-full h-full object-cover object-center md:object-[center_30%]"
-          />
-          {/* Tady je PŘESNĚ ten gradient z původního Lovable kódu */}
-          <div className="absolute inset-0 bg-gradient-to-b from-warm-white/60 via-warm-white/20 to-cream/80" />
-        </div>
+    return (
+        <section className="relative min-h-screen flex flex-col items-center overflow-hidden">
+            {/* 1. BACKGROUND & PŮVODNÍ EFEKT */}
+            <div className="absolute inset-0">
+                <img
+                    src={heroImage}
+                    alt="Eliška a Kryštof"
+                    className="w-full h-full object-cover object-center md:object-[center_30%]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-warm-white/60 via-warm-white/20 to-cream/80" />
+            </div>
 
-        {/* 2. HORNÍ TEXT - V NEBI */}
-        {/* pt-32 (nebo pt-40) to odsadí od vrchu dolů, aby to nebylo nalepené na liště, ale plavalo v nebi */}
-        <div className="relative z-10 text-center px-6 pt-32 md:pt-40">
-          <div className="animate-fade-in" style={{ animationDelay: "0.2s", opacity: 0 }}>
-            <p className="font-heading text-xl md:text-2xl tracking-[0.2em] text-foreground/80 mb-6">
-              Budeme svoji
-            </p>
-          </div>
+            {/* 2. HORNÍ TEXT - V NEBI */}
+            <div className="relative z-10 text-center px-6 pt-32 md:pt-40">
+                <div className="animate-fade-in" style={{ animationDelay: "0.2s", opacity: 0 }}>
+                    <p className="font-heading text-xl md:text-2xl tracking-[0.2em] text-foreground/80 mb-6">
+                        Budeme svoji
+                    </p>
+                </div>
 
-          <h1
-              className="font-heading text-5xl md:text-7xl lg:text-8xl font-light tracking-wide text-foreground animate-fade-in"
-              style={{ animationDelay: "0.4s", opacity: 0 }}
-          >
-            Eliška <span className="text-gold italic">&</span> Kryštof
-          </h1>
-        </div>
+                <h1
+                    className="font-heading text-5xl md:text-7xl lg:text-8xl font-light tracking-wide text-foreground animate-fade-in"
+                    style={{ animationDelay: "0.4s", opacity: 0 }}
+                >
+                    Eliška <span className="text-gold italic">&</span> Kryštof
+                </h1>
+            </div>
 
-        {/* 3. NEVIDITELNÁ MEZERA (SPACER) */}
-        {/* Tohle flex-grow funguje jako pružina, která odtlačí horní a spodní text od sebe co nejdál */}
-        <div className="flex-grow" />
+            {/* 3. NEVIDITELNÁ MEZERA (SPACER) */}
+            <div className="flex-grow" />
 
-        {/* 4. TEXT O DOTAZNÍKU - U NOHOU/ZÍDKY */}
-        {/* pb-28 to zvedne trochu ode dna, aby to bylo v úrovni kolen/zídky a nepletlo se do šipky */}
-        <div
-            className="relative z-10 text-center px-6 pb-28 md:pb-36 animate-fade-in"
-            style={{ animationDelay: "0.8s", opacity: 0 }}
-        >
-          <p className="font-heading text-xl md:text-2xl text-foreground mb-8 tracking-wide font-bold">
-            1. července 2026, Zámeček Ostrov u Zbraslavic
-          </p>
-        </div>
-
-        {/* 5. TLAČÍTKO A ŠIPKA - ÚPLNĚ DOLE */}
-        {/* absolute bottom-8 to přibije na spodní okraj obrazovky */}
-        <div
-            className="absolute bottom-8 left-0 right-0 z-20 text-center animate-fade-in"
-            style={{ animationDelay: "1.2s", opacity: 0 }}
-        >
-          <a
-              href="#rsvp"
-              className="inline-flex flex-col items-center gap-2 font-body text-sm tracking-widest uppercase text-foreground/60 hover:text-gold transition-colors duration-300"
-          >
-            <span>Potvrďte nám prosím svou účast</span>
-            <svg
-                className="w-4 h-4 animate-float"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+            {/* 4. TEXT O DOTAZNÍKU/MÍSTĚ - U NOHOU/ZÍDKY */}
+            <div
+                className="relative z-10 text-center px-6 pb-28 md:pb-36 animate-fade-in"
+                style={{ animationDelay: "0.8s", opacity: 0 }}
             >
-              <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 14l-7 7m0 0l-7-7m7 7V3"
-              />
-            </svg>
-          </a>
-        </div>
-      </section>
-  );
+                <p className="font-heading text-xl md:text-2xl text-foreground mb-8 tracking-wide font-bold">
+                    1. července 2026, Zámeček Ostrov u Zbraslavic
+                </p>
+            </div>
+
+            {/* 5. TLAČÍTKO A ŠIPKA - ÚPLNĚ DOLE */}
+            <div
+                className="absolute bottom-8 left-0 right-0 z-20 text-center animate-fade-in"
+                style={{ animationDelay: "1.2s", opacity: 0 }}
+            >
+                <a
+                    href="#rsvp"
+                    // DŮLEŽITÁ OPRAVA: Toto zabrání 404 chybě a plynule sjede dolů
+                    onClick={(e) => {
+                        e.preventDefault();
+                        document.getElementById("rsvp")?.scrollIntoView({ behavior: "smooth" });
+                    }}
+                    className="inline-flex flex-col items-center gap-2 font-body text-sm tracking-widest uppercase text-foreground/60 hover:text-gold transition-colors duration-300 cursor-pointer"
+                >
+                    <span>Potvrďte nám prosím svou účast</span>
+                    <svg
+                        className="w-4 h-4 animate-float"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                        />
+                    </svg>
+                </a>
+            </div>
+        </section>
+    );
 };
 
 export default HeroSection;
