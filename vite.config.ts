@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
   // Přesný název tvého repozitáře mezi lomítky
-  base: "/eli-ka-kry-tof-wedding/",
+  base: "/svatba-hochovi/",
 
   server: {
     host: "::",

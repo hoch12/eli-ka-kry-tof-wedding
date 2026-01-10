@@ -9,8 +9,6 @@ const VenueSection = () => {
 
           {/* --- PŘESUNUTÝ TEXT Z HERO SEKCE (POZVÁNKA) --- */}
           <div className="text-center mb-24 max-w-3xl mx-auto animate-fade-in">
-
-
             <div className="space-y-6 text-foreground/80">
               <p className="font-body text-lg md:text-xl leading-relaxed">
                 Srdečně vás zveme na naši svatbu, která se bude konat 1. července 2026 na Zámečku Ostrov u Zbraslavic.
@@ -19,7 +17,6 @@ const VenueSection = () => {
                 Budeme moc rádi, když u toho budete s námi.
               </p>
             </div>
-
             <div className="section-divider mt-12 opacity-50" />
           </div>
           {/* ----------------------------------------------- */}
@@ -34,12 +31,15 @@ const VenueSection = () => {
             <div className="section-divider mt-8" />
           </div>
 
-          {/* Venue Image */}
+          {/* Venue Image 1 */}
           <div className="mb-16 rounded-lg overflow-hidden shadow-lg">
             <img
                 src={venueImage}
                 alt="Zámeček Ostrov u Zbraslavic"
-                className="w-full h-64 md:h-96 object-cover"
+                // ZMĚNA: Na mobilu (h-64) je to proužek.
+                // Na počítači (md:h-auto md:aspect-[16/9]) se to roztáhne podle poměru stran.
+                // Uvidíš mnohem víc z fotky.
+                className="w-full h-64 md:h-auto md:aspect-[16/9] object-cover"
             />
           </div>
 
@@ -118,23 +118,16 @@ const VenueSection = () => {
                 <span>Hotel Agnes - agneshotel.cz</span>
                 <ExternalLink className="w-4 h-4" />
               </a>
-
-              <p className="font-body text-sm text-muted-foreground leading-relaxed mt-4">
-                Pokud budete chtít využít služeb našeho řidiče a užít si oslavu bez starostí, mohou řidiči po společné hostině odvézt své vozy k Hotelu Agnes. Náš řidič vás pak po domluvě dopraví zpět na zámek a večer zajistí odvoz vás i zbytku vaší posádky na ubytování.
-              </p>
-
-              <p className="font-body text-sm text-foreground/80 font-medium mt-4">
-                Kontakt na řidiče a jízdní řád připravíme.
-              </p>
             </div>
           </div>
 
-          {/* Venue Grounds Image */}
+          {/* Venue Grounds Image 2 - ZMĚNA ZDE */}
           <div className="rounded-lg overflow-hidden shadow-lg">
             <img
                 src={venueGroundsImage}
                 alt="Areál Zámečku Ostrov"
-                className="w-full h-64 md:h-80 object-cover"
+                // ZMĚNA: Použito aspect-[16/9] pro širokoúhlý formát, který ukáže víc trávy i nebe
+                className="w-full h-64 md:h-auto md:aspect-[16/9] object-cover"
             />
           </div>
         </div>

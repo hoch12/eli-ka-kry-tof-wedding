@@ -54,7 +54,7 @@ const HeroSection = () => {
                         e.preventDefault();
                         document.getElementById("rsvp")?.scrollIntoView({ behavior: "smooth" });
                     }}
-                    className="inline-flex flex-col items-center gap-2 font-body text-sm tracking-widest uppercase text-foreground/60 hover:text-gold transition-colors duration-300 cursor-pointer"
+                    className="inline-flex flex-col items-center gap-2 font-body text-sm tracking-widest uppercase text-foreground/60 hover:text-gold transition-colors duration-300 cursor-pointer font-bold"
                 >
                     <span>Potvrďte nám prosím svou účast</span>
                     <svg
